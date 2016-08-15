@@ -1,7 +1,7 @@
 console.log('Loaded routes!');
-var user = require('../controllers/UserController.js');
-var product = require('../controllers/ProductController.js');
-var bid = require('../controllers/BidController.js');
+var user = require('../controllers/userController.js');
+var product = require('../controllers/productController.js');
+var bid = require('../controllers/bidController.js');
 module.exports = function(app){
     app.post('/login', function(req, res) {
         console.log('Inside POST /login route!');
