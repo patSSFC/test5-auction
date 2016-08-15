@@ -1,0 +1,33 @@
+<h2>Bids Page!</h2>
+<div ng-show="vm.error">
+    error!
+</div>
+<h2>{{vm.user.username}} (<a href="#/login">Logout</a>)</h2>
+
+<div class="product-contain">
+    <div class="product" ng-repeat="product in vm.products">
+        <h3>{{product.name}}</h3>
+        <img src="../images/flask.png" alt="" />
+        <div class="input-contain">
+            <input type="number" name="bid" required min="1" ng-model="vm.bidAmount[$index]">
+            <input type="button" value="Bid!" ng-click="vm.onBid(product._id, $index, vm.user.id)">
+        </div>
+        <div ng-show="vm.bidError && vm.currIndex === $index">
+            Bid must be greater than current max bid
+        </div>
+
+        <div class="bid-contain">
+            <p ng-repeat="bid in product._bids |filter:search">
+                {{bid._user.name}} :
+                {{bid.amount}}
+            </p>
+            Search bids...<input type="text" name="name" ng-model="search">
+        </div>
+    </div>
+</div>
+
+<div ng-show="vm.endError">
+    All products must have at least 1 bid before bidding maybe ended!!
+</div>
+
+<button ng-click="vm.onEnd()">End Bid!</button>

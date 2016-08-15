@@ -1,0 +1,13 @@
+<h2>Login!</h2>
+
+<p ng-show="vm.error">
+    Error in creating a user!
+</p>
+
+<form name="loginForm">
+    Name: <input type="text" ng-model="formData.username" required minlength="1">
+    <button ng-click="vm.onLogin()" type="button" name="button">Login!</button>
+    <p ng-show="loginForm.name.$touched && loginForm.name.$error.required">
+        Please enter your username!
+    </p>
+</form>

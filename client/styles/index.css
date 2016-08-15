@@ -1,0 +1,17 @@
+body {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.product-contain {
+    display: flex;
+}
+
+.product {
+    float: left;
+    margin: 0 10px;
+}
+
+.input-contain {
+    display: block;
+}
